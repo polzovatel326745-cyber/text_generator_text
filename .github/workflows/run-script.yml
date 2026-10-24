@@ -1,0 +1,19 @@
+name: Run Python Script
+on: [push]
+
+jobs:
+  run-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: install
+        run: pip install -r requirements.txt
+      - name: pillow
+        run: pip install pillow
+      - name: Execute script
+        run: python imageurl.py
